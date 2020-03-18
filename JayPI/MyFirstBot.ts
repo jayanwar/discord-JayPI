@@ -1,4 +1,5 @@
-import Discord from 'discord.js';
+const imageSearch = require('./search');
+const Discord = require('discord.js');
 require('dotenv').config();
 
 const client = new Discord.Client();
@@ -9,13 +10,13 @@ client.on('ready', ()=>{
     console.info(`Logged in as ${client.user.tag}`);
 })
 
-client.on('message', msg=>{
+client.on('message', async msg=>{
     if (msg.content.startsWith('!img')) {
         const searchQuery = msg.content.replace(/!img/,'').trim();
-        
+        const response = imageSearch(searchQuery);
+        msg.channel.send(searchQuery);
     } else if (msg.content === 'card') {
-        msg.reply('pong');
-        msg.channel.send('chip');
+        msg.reply('chip');
     } else if (msg.content.startsWith('!kick')) {
         if (msg.mentions.users.size) {
             const taggedUser = msg.mentions.users.first();
