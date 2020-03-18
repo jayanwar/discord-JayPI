@@ -1,5 +1,5 @@
-const imageSearch = require('./search');
-const Discord = require('discord.js');
+import imageSearch from './search'
+import Discord from 'discord.js';
 require('dotenv').config();
 
 const client = new Discord.Client();
@@ -13,8 +13,9 @@ client.on('ready', ()=>{
 client.on('message', async msg=>{
     if (msg.content.startsWith('!img')) {
         const searchQuery = msg.content.replace(/!img/,'').trim();
-        const response = imageSearch(searchQuery);
-        msg.channel.send(searchQuery);
+        const response = await imageSearch(searchQuery);
+        console.log(response || 'nothing was returned');
+        await msg.channel.send(response);
     } else if (msg.content === 'card') {
         msg.reply('chip');
     } else if (msg.content.startsWith('!kick')) {
