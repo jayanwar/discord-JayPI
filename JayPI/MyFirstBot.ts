@@ -13,9 +13,9 @@ client.on('message', msg=>{
     if (msg.content.startsWith('!img')) {
         const searchQuery = msg.content.replace(/!img/,'').trim();
         
-    } else if (msg.content === 'ping') {
+    } else if (msg.content === 'card') {
         msg.reply('pong');
-        msg.channel.send('pong');
+        msg.channel.send('chip');
     } else if (msg.content.startsWith('!kick')) {
         if (msg.mentions.users.size) {
             const taggedUser = msg.mentions.users.first();
