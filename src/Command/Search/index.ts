@@ -1,7 +1,8 @@
+import { Message } from 'discord.js'
 import fetch from 'node-fetch';
 import { stringify } from 'query-string';
 
-export default async function imageSearch(message) {
+export default async function imageSearch(message: Message) {
     const searchQuery = message.content.replace(/!img/,'').trim();
     const query = stringify({ q: searchQuery });
     try {

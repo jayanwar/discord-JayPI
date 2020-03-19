@@ -1,5 +1,5 @@
 import imageSearch from './Command/Search/index';
-import Discord from 'discord.js';
+import Discord, { Message } from "discord.js";
 require('dotenv').config();
 
 const client = new Discord.Client();
@@ -10,7 +10,7 @@ client.on('ready', ()=>{
     console.info(`Logged in as ${client.user.tag}`);
 })
 
-client.on('message', async (msg)=>{
+client.on('message', async (msg: Message)=>{
     if (msg.content.startsWith('!img')) {
         const response = await imageSearch(msg);
         await msg.channel.send(response);
