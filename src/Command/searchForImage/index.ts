@@ -1,9 +1,8 @@
-import { Message } from 'discord.js'
 import fetch from 'node-fetch';
 import { stringify } from 'query-string';
 
-export default async function imageSearch(message: Message) {
-    const searchQuery = message.content.replace(/!img/,'').trim();
+export default async function searchForImage(message: string): Promise<string> {
+    const searchQuery = message.replace(/!img/,'').trim();
     const query = stringify({ q: searchQuery });
     try {
         const response = await (await fetch(`https://api.imgur.com/3/gallery/search/relevance?${query}`,{

@@ -1,5 +1,5 @@
 {
-  "name": "discord-JayPI",
+  "name": "discord-jaypi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,11 +18,16 @@
   },
   "homepage": "https://github.com/jayanwar/discord-JayPI#readme",
   "dependencies": {
+    "@types/node-fetch": "^2.5.5",
+    "@types/ws": "^7.2.3",
     "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0",
     "node-fetch": "^2.6.0",
     "query-string": "^6.11.1"
   },
   "devDependencies": {
-    "@types/node": "^13.9.1"
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0"
   }
 }
