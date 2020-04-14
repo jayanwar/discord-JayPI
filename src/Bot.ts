@@ -1,5 +1,5 @@
-import searchForImage from './Command/searchForImage';
-import assignEmoji from './Command/assignEmoji'
+import searchForImage from './Command/searchImgur';
+import handleImage from './Command/handleImage'
 import Discord from "discord.js";
 import { config } from 'dotenv';
 
@@ -21,11 +21,11 @@ client.on('message', async (message: Discord.Message): Promise<void> => {
     }
     const [command, ...args] = message.content.slice(prefix!.length).split(' ')[0].split(':');
     switch(command) {
-        case('img'):
+        case('imgur'):
             await searchForImage(message);
             return;
-        case('assign'):
-            await assignEmoji(message, args);
+        case('img'):
+            await handleImage(message, args, process.env.IMAGES_DIR_PATH!);
             return;
     }
     
